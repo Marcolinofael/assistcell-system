@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\Loja;
 use Illuminate\Database\Eloquent\Model;
 
 class Tecnico extends Model
@@ -9,9 +10,10 @@ class Tecnico extends Model
     protected $table = 'tecnicos';
     protected $guarded = ['id'];
 
-    public function loja();
+    public function loja()
+
     {
-        return $this->belongsToMany(Loja::class, 'loja_id');
+        return $this->belongsTo(Loja::class, 'loja_id');
     }
     
 }
